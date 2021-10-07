@@ -18,7 +18,7 @@ namespace CapaDatos
             Desconectar();
         }
 
-        public DataTable DTModoConectado(string query)
+        public DataTable ModoConectado(string query)
         {
             //Método para realizar todas las consultas en modo casi-conectado
             Comando.Connection = Conectar();

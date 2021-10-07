@@ -48,5 +48,11 @@
     <Compile Include="CD_EjecutarSQL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaSoporte\CapaSoporte.csproj">
+      <Project>{0aa1a7d1-a863-4160-9ea3-967551ac9654}</Project>
+      <Name>CapaSoporte</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

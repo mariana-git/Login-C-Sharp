@@ -42,22 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="CS_UsuarioActivo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
-      <Project>{72f80d40-b90f-4e2d-8ad7-ed5a21950cb8}</Project>
-      <Name>CapaDatos</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CapaLogica\CapaLogica.csproj">
-      <Project>{50a41967-ce4e-459f-9d8b-3e40a6542ed5}</Project>
-      <Name>CapaLogica</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CapaVista\CapaVista.csproj">
-      <Project>{bc2539b0-fda3-45c7-80f3-760164af11d3}</Project>
-      <Name>CapaVista</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

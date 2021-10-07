@@ -94,6 +94,10 @@
       <Project>{50a41967-ce4e-459f-9d8b-3e40a6542ed5}</Project>
       <Name>CapaLogica</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CapaSoporte\CapaSoporte.csproj">
+      <Project>{0aa1a7d1-a863-4160-9ea3-967551ac9654}</Project>
+      <Name>CapaSoporte</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\key.png" />

@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using CapaSoporte;
 using System.Windows.Forms;
 
 namespace CapaVista
@@ -15,12 +15,17 @@ namespace CapaVista
         public Principal()
         {
             InitializeComponent();
-            StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void BtnLogout_Click(object sender, EventArgs e)
         {
             Dispose();
+        }
+
+        private void Principal_Load(object sender, EventArgs e)
+        {
+            StartPosition = FormStartPosition.CenterScreen;
+            lblDatosActivo.Text = CS_UsuarioActivo.Nombre + " " + CS_UsuarioActivo.Apellido ;
         }
     }
 }
