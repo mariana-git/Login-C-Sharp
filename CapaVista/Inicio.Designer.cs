@@ -30,6 +30,7 @@ namespace CapaVista
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblMensajeError = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -46,6 +47,7 @@ namespace CapaVista
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(12)))), ((int)(((byte)(168)))));
+            this.panel1.Controls.Add(this.lblMensajeError);
             this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
@@ -60,6 +62,22 @@ namespace CapaVista
             this.panel1.Size = new System.Drawing.Size(371, 368);
             this.panel1.TabIndex = 1;
             // 
+            // lblMensajeError
+            // 
+            this.lblMensajeError.AutoSize = true;
+            this.lblMensajeError.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblMensajeError.Font = new System.Drawing.Font("Arial Unicode MS", 10F);
+            this.lblMensajeError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(10)))));
+            this.lblMensajeError.Image = global::CapaVista.Properties.Resources.error;
+            this.lblMensajeError.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblMensajeError.Location = new System.Drawing.Point(115, 219);
+            this.lblMensajeError.Name = "lblMensajeError";
+            this.lblMensajeError.Size = new System.Drawing.Size(143, 19);
+            this.lblMensajeError.TabIndex = 8;
+            this.lblMensajeError.Text = "      Mensaje de Error";
+            this.lblMensajeError.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblMensajeError.Visible = false;
+            // 
             // btnCerrar
             // 
             this.btnCerrar.BackgroundImage = global::CapaVista.Properties.Resources.cerrar;
@@ -67,7 +85,6 @@ namespace CapaVista
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(9)))), ((int)(((byte)(183)))));
-            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(12)))), ((int)(((byte)(168)))));
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Location = new System.Drawing.Point(314, 3);
             this.btnCerrar.Name = "btnCerrar";
@@ -100,7 +117,7 @@ namespace CapaVista
             this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.btnIngresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(219)))));
-            this.btnIngresar.Location = new System.Drawing.Point(84, 250);
+            this.btnIngresar.Location = new System.Drawing.Point(83, 278);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(217, 35);
             this.btnIngresar.TabIndex = 4;
@@ -196,6 +213,7 @@ namespace CapaVista
         private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Label lblMensajeError;
     }
 }
 

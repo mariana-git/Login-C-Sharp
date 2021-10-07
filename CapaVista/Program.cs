@@ -16,7 +16,16 @@ namespace CapaVista
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Inicio());
+            //Abro el form de login en un diálogo modal desde el MAIN, solo si se valida el Usuario abre el form principal
+            Inicio login = new Inicio();
+            if (login.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new Principal());
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
     }
 }

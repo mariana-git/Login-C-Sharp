@@ -18,34 +18,56 @@ namespace CapaVista
         {
             InitializeComponent();
             AcceptButton = btnIngresar;
+            StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             Dispose();
         }
-
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
-            if (txtUsuario.Text == string.Empty || txtClave.Text == string.Empty) MessageBox.Show("Debe ingresar ambos campos");
+            //antes de consultar la BD valido que los textbox tengan datos
+            if (txtUsuario.Text == string.Empty)
+            {
+                MensajeError("Ingresar Usuario");
+                txtUsuario.Focus();
+            }
+            else if (txtClave.Text == string.Empty)
+            {
+                MensajeError("Ingresar Clave");
+                txtClave.Focus();
+            }
             else
             {
+                //Abro este form de login en un diálogo modal desde el MAIN, si se valida el Usuario, se abre el form principal
                 try
                 {
                     CL_ValidarLogin validar = new CL_ValidarLogin();
                     validar.Usuario = txtUsuario.Text;
                     validar.Clave = txtClave.Text;
                     bool existe = validar.ValidarLogin();
-                    if (existe) new Principal().Show();
-                    else MessageBox.Show("Usuario inexistente");
+                    if (existe)
+                    {
+                        DialogResult = DialogResult.OK;
+                    }
+                    else
+                    {
+                        MensajeError("Usuario inexistente\nVuelva a Intentarlo");
+                        txtClave.Text = string.Empty;
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"No fue posible realizar la transaccion\n\n\n\n\n\n{ex}");
+                    MessageBox.Show($"No fue posible realizar la transaccion\n\n\n\n\n\n{ex}", "ERROR");
                 }
-
             }
-
+        }
+        private void MensajeError(string mensaje)
+        {
+            //muestra mensajes de error en un label de este formulario de login
+            lblMensajeError.Text ="     " + mensaje;
+            lblMensajeError.Visible = true;
         }
     }
 }

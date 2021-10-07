@@ -15,6 +15,12 @@ namespace CapaVista
         public Principal()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
+        }
+
+        private void BtnLogout_Click(object sender, EventArgs e)
+        {
+            Dispose();
         }
     }
 }

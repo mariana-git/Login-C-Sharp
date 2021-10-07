@@ -16,9 +16,9 @@ namespace CapaDatos
         {
             string query = $"SELECT * FROM Usuarios WHERE Usuario ='{Usuario}' AND Clave = '{Clave}';";
 
-            bool existe = new CD_EjecutarSQL().BoolModoConectado(query);
-            if(existe) return true;
-            else return false;
+            DT = new CD_EjecutarSQL().DTModoConectado(query);
+            if (DT.Rows.Count == 0) return false;
+            else return true;
         }
         
     }
