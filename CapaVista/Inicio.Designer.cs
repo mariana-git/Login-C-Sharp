@@ -159,6 +159,7 @@ namespace CapaVista
             this.txtClave.Size = new System.Drawing.Size(217, 26);
             this.txtClave.TabIndex = 1;
             this.txtClave.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtClave.Enter += new System.EventHandler(this.TxtClave_Enter);
             // 
             // txtUsuario
             // 
@@ -171,6 +172,7 @@ namespace CapaVista
             this.txtUsuario.Size = new System.Drawing.Size(217, 26);
             this.txtUsuario.TabIndex = 0;
             this.txtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtUsuario.Enter += new System.EventHandler(this.TxtUsuario_Enter);
             // 
             // pictureBox1
             // 
