@@ -12,7 +12,7 @@ namespace CapaLogica
         private int intentos = 3;
 
 
-        public bool Permitidos(string usuarioIntentado)
+        public bool IntentosPermitidos(string usuarioIntentado)
         {
             //este método verifica que no se intente ingresar mas de tres veces con el mismo usuario y clave incorrectas, sino bloquea el usuario
             if (usuario == usuarioIntentado) 

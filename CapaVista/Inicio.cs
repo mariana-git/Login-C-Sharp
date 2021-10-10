@@ -14,8 +14,7 @@ namespace CapaVista
     //https://coolors.co/7400b8-6930c3-5e60ce-5390d9-4ea8de-48bfe3-56cfe1-64dfdf-72efdd-80ffdb
     public partial class Inicio : Form
     {
-        private readonly CL_IntentosLogin intentos = new CL_IntentosLogin();
-        private readonly CL_ValidarLogin validar = new CL_ValidarLogin();
+        private CL_ValidarLogin validar;
 
         public Inicio()
         {
@@ -44,28 +43,13 @@ namespace CapaVista
                 //Abro este form de login en un diálogo modal desde el MAIN, si se valida el Usuario, se abre el form principal
                 try
                 {
+                    validar = new CL_ValidarLogin();
                     validar.Usuario = txtUsuario.Text;
                     validar.Clave = txtClave.Text;
-                    bool existe = validar.ValidarLogin();
-                    if (existe)
-                    {
-                        DialogResult = DialogResult.OK;
-                    }
-                    else
-                    {
-                        if (intentos.Permitidos(txtUsuario.Text))
-                        {
-                            MensajeError("Usuario o Clave inexistente\nVuelva a Intentarlo");
-                            txtClave.Text = "";
-                        }
-                        else
-                        {
-                            MessageBox.Show("Contáctese con el Administrador\n\n   administrador@mail.com", "USUARIO BLOQUEADO");
-                            txtClave.Text = "";
-                            txtUsuario.Text = "";
-                            txtUsuario.Focus();
-                        }
-                    }
+                    string resultado = validar.ValidarLogin();
+                    if (resultado == "Login Exitoso") DialogResult = DialogResult.OK;
+                    else MensajeError(resultado);
+                    txtClave.Text = "";
                 }
                 catch (Exception ex)
                 {

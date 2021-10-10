@@ -69,13 +69,13 @@ namespace CapaVista
             this.lblMensajeError.Font = new System.Drawing.Font("Arial Unicode MS", 10F);
             this.lblMensajeError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(214)))), ((int)(((byte)(10)))));
             this.lblMensajeError.Image = global::CapaVista.Properties.Resources.error;
-            this.lblMensajeError.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lblMensajeError.Location = new System.Drawing.Point(115, 219);
+            this.lblMensajeError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMensajeError.Location = new System.Drawing.Point(117, 219);
             this.lblMensajeError.Name = "lblMensajeError";
             this.lblMensajeError.Size = new System.Drawing.Size(143, 19);
             this.lblMensajeError.TabIndex = 8;
             this.lblMensajeError.Text = "      Mensaje de Error";
-            this.lblMensajeError.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblMensajeError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblMensajeError.Visible = false;
             // 
             // btnCerrar

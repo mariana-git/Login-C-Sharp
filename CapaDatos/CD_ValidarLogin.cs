@@ -8,11 +8,10 @@ namespace CapaDatos
     public class CD_ValidarLogin: CD_EjecutarSQL
     {
         private DataTable DT = new DataTable();
-        private string usuario, clave;
-        public string Usuario { get => usuario; set => usuario = value; }
-        public string Clave { get => clave; set => clave = value; }
+        public string Usuario { private get; set; }
+        public string Clave { private get; set; }
 
-        public bool ValidarUsuario()
+        public bool ValidarUsuarioYContraseña()
         {
             //busco en la BD coincidencia de usuario y clave (por ahora todo expuesto, sin encriptar)
             string query = $"SELECT * FROM Usuarios u INNER JOIN Personas p ON u.IDPersona = p.IDPersona WHERE Usuario = '{Usuario}' AND Clave = '{Clave}';";

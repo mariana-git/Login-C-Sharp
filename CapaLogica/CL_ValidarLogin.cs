@@ -8,17 +8,26 @@ namespace CapaLogica
 {
     public class CL_ValidarLogin
     {
-        private string usuario, clave;
-        public string Usuario { get => usuario; set => usuario = value; }
-        public string Clave { get => clave; set => clave = value; }
+        CD_ValidarLogin CDLogin;
+        CD_ValidarUsuario CDUsuario;
+        CL_IntentosLogin CLIntentos;
+        public string Usuario { private get; set ; }
+        public string Clave { private get; set; }
 
-        public bool ValidarLogin()
+        public string ValidarLogin()
         {
-            CD_ValidarLogin validar = new CD_ValidarLogin();
-            validar.Usuario = this.Usuario;
-            validar.Clave = this.Clave;
-            bool existe = validar.ValidarUsuario();
-            return existe;
+            CDUsuario = new CD_ValidarUsuario();
+            CDUsuario.Usuario = this.Usuario;
+            if (CDUsuario.ValidarUsuario())
+            {
+                CDLogin = new CD_ValidarLogin();
+                CDLogin.Usuario = this.Usuario;
+                CDLogin.Clave = this.Clave;
+                bool existe = CDLogin.ValidarUsuarioYContraseña();
+                if (existe) return "Login Exitoso";
+                else return "Clave Incorrecta";                
+            }
+            else return "Usuario Inexistente";            
         }
     }
 }
