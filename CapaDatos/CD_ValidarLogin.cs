@@ -22,10 +22,10 @@ namespace CapaDatos
                 //si existe el usuario, ademas de devolver true, cargo en la Capa Soporte los datos del usuario 
                 CS_UsuarioActivo.IDUsuario = Convert.ToInt32(DT.Rows[0][0]);
                 CS_UsuarioActivo.IDPersona = Convert.ToInt32(DT.Rows[0][1]);
-                CS_UsuarioActivo.IDCargo = Convert.ToInt32(DT.Rows[0][18]);
-                CS_UsuarioActivo.Nombre = Convert.ToString(DT.Rows[0][6]);
-                CS_UsuarioActivo.Apellido = Convert.ToString(DT.Rows[0][7]);
-                CS_UsuarioActivo.Email = Convert.ToString(DT.Rows[0][16]);
+                CS_UsuarioActivo.IDCargo = Convert.ToInt32(DT.Rows[0][12]);
+                CS_UsuarioActivo.Nombre = Convert.ToString(DT.Rows[0][7]);
+                CS_UsuarioActivo.Apellido = Convert.ToString(DT.Rows[0][8]);
+                CS_UsuarioActivo.Email = Convert.ToString(DT.Rows[0][11]);
                 return true;
             }
             else return false;
