@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using CapaSoporte;
 using CapaLogica;
 using System.Windows.Forms;
@@ -40,7 +39,7 @@ namespace CapaVista
             }
             else
             {
-                //Abro este form de login en un diálogo modal desde el MAIN, si se valida el Usuario, se abre el form principal
+                //Abro este form de login en un diálogo modal desde el MAIN, si se valida el Usuario, se abre el form principal, sino se cierra toda la aplicacion
                 try
                 {
                     validar = new CL_ValidarLogin();
@@ -53,9 +52,8 @@ namespace CapaVista
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"No fue posible realizar la transaccion\n\n\n\n\n\n{ex}", "ERROR");
-                }
-                
+                    MessageBox.Show($"No fue posible realizar la transaccion\n\n\n\n{ex}", "ERROR");
+                }                
             }
         }
         private void MensajeError(string mensaje)
@@ -67,11 +65,13 @@ namespace CapaVista
 
         private void TxtClave_Enter(object sender, EventArgs e)
         {
+            //limpia el mensaje de error
             lblMensajeError.Text = "";
         }
 
         private void TxtUsuario_Enter(object sender, EventArgs e)
         {
+            //limpia el mensaje de error
             lblMensajeError.Text = "";
         }
     }

@@ -5,7 +5,7 @@ using CapaSoporte;
 
 namespace CapaDatos
 {
-    public class CD_ValidarLogin: CD_EjecutarSQL
+    public class CD_ValidarUsuarioYClave : CD_EjecutarSQL
     {
         private DataTable DT = new DataTable();
         public string Usuario { private get; set; }

@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="CD_Conexion.cs" />
     <Compile Include="CD_BloquearUsuario.cs" />
-    <Compile Include="CD_ValidarLogin.cs" />
+    <Compile Include="CD_ValidarUsuarioYClave.cs" />
     <Compile Include="CD_EjecutarSQL.cs" />
     <Compile Include="CD_ValidarUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
