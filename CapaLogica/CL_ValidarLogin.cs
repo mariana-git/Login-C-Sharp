@@ -1,39 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using CapaSoporte;
 using CapaDatos;
 
 namespace CapaLogica
 {
     public class CL_ValidarLogin
     {
-        CD_ValidarUsuarioYClave CDUsuarioyClave;
-        CD_ValidarUsuario CDUsuario;
-        int intentos =1;
+        CL_IntentosLogin intentos;
+
         public string Usuario { private get; set ; }
         public string Clave { private get; set; }
 
         public string ValidarLogin()
         {
-            CDUsuario = new CD_ValidarUsuario();
-            CDUsuario.Usuario = this.Usuario;
-            if (CDUsuario.ValidarUsuario())
+            intentos = new CL_IntentosLogin(Usuario); //clase que valida la cantidad de intentos
+            CD_ValidarNombreUsuario ValidaUsuarioCD = new CD_ValidarNombreUsuario();
+            if (ValidaUsuarioCD.NombreUsuario(Usuario))   //valido que exista el usuario
             {
-                CDUsuarioyClave = new CD_ValidarUsuarioYClave();
-                CDUsuarioyClave.Usuario = this.Usuario;
-                CDUsuarioyClave.Clave = this.Clave;
-                bool coinciden = CDUsuarioyClave.ValidarUsuarioYContraseña();
-                if (coinciden) return "Login Exitoso";
+                CD_ValidarLogin ValidaLoginCD = new CD_ValidarLogin(Usuario,Clave);
+                if (ValidaLoginCD.Existe) return "Login Exitoso"; //valido que coincidan usuario y contraseña
                 else
                 {
-                    intentos++;
-                    if (intentos < 3) return "Clave Incorrecta";
-                    else return ("Usuario Bloqueado");
-                } 
-                            
+                    
+                    if (intentos.Permitir) return "Clave Incorrecta";  //valido la cantidad de intentos incorrectos
+                    else
+                    {
+                        CD_BloquearUsuario BloquearCD = new CD_BloquearUsuario();
+                        BloquearCD.Usuario = Usuario;
+                        int filas = BloquearCD.Bloquear();  //bloquear usuario
+                        return $"Usuario Bloqueado {filas} afectadas";
+                    }                         
+                }
             }
-            else return "Usuario Inexistente";            
-        }
+            else return "Usuario Inexistente";
+            //if (CDUsuario.ValidarUsuario())
+            //{
+            //    CDUsuarioyClave = new CD_ValidarLogin();
+            //    CDUsuarioyClave.Usuario = this.Usuario;
+            //    CDUsuarioyClave.Clave = this.Clave;
+            //    bool coinciden = CDUsuarioyClave.ValidarUsuarioYContraseña();
+            //    if (coinciden) return "Login Exitoso";
+            //    else return "Clave Incorrecta";        
+            //}
+            //else return "Usuario Inexistente";            
+        }       
     }
 }

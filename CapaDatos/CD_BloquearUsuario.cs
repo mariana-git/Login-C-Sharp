@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace CapaDatos
 {
-    public class CD_BloquearUsuario :CD_EjecutarSQL
+    public class CD_BloquearUsuario :CD_EjecutarNonQuery
     {
-        private string usuario;
 
-        public string Usuario { get => usuario; set => usuario = value; }
+        public string Usuario { private get; set; }
 
-        public void Bloquear()
+        public int Bloquear()
         {
             //busco en la BD coincidencia de usuario y clave 
-            string query = $"UPDATE Usuarios SET Bloqueado = -1 WHERE Usuario = '{Usuario}';";
-            ModoDesconectado(query);
+            //string query = $"UPDATE Usuarios SET Bloqueado = True WHERE Usuario = 'd';";
+            string query = $"select count(*) from Usuarios;";
+            return EjecutarNonQuery(query);
         }
     }
 }

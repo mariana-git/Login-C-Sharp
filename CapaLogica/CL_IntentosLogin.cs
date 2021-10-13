@@ -8,35 +8,33 @@ namespace CapaLogica
 {
     public class CL_IntentosLogin
     {
-        private string usuario;
-        private int intentos = 3;
+        public bool Permitir { get; private set;}
+        private int intentos;
+        private string usuarioIntentado;
 
 
-        public bool IntentosPermitidos(string usuarioIntentado)
+        public CL_IntentosLogin (string usuario)
         {
-            //este método verifica que no se intente ingresar mas de tres veces con el mismo usuario y clave incorrectas, sino bloquea el usuario
-            if (usuario == usuarioIntentado) 
+            //este método verifica que no se intente ingresar mas de tres veces con el mismo usuario y clave incorrectas
+            if (usuarioIntentado == usuario) 
             {
 
-                if (intentos == 1)
+                if (intentos >3)
                 {
-                    CD_BloquearUsuario CDUsuarios = new CD_BloquearUsuario();
-                    CDUsuarios.Usuario = usuarioIntentado;
-                    CDUsuarios.Bloquear();  //bloquear usuario
-                    intentos = 3;
-                    return false;
+                    intentos = 1;
+                    Permitir = false;
                 }
                 else
                 {
-                    intentos--;
-                    return true;
+                    intentos++;
+                    Permitir = true;
                 }
             }
             else
             {
-                intentos--;
-                usuario = usuarioIntentado;
-                return true;
+                intentos++;
+                usuarioIntentado = usuario;
+                Permitir = true;
             }    
 
         }

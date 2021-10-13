@@ -14,6 +14,7 @@ namespace CapaSoporte
         public static string Nombre { get; set; }
         public static string Apellido { get; set; }
         public static string Email { get; set; }
+        public static int IntentosLogin { get; set; }
 
     }
 }

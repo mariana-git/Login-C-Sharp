@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using CapaSoporte;
 using CapaLogica;
 using System.Windows.Forms;
 
@@ -14,6 +9,7 @@ namespace CapaVista
     public partial class Inicio : Form
     {
         private CL_ValidarLogin validar;
+        
 
         public Inicio()
         {
@@ -28,7 +24,7 @@ namespace CapaVista
         }
         private void BtnIngresar_Click(object sender, EventArgs e)
         {            
-            //antes de consultar la BD valido que los textbox tengan datos
+            //antes de consultar la BD valido a nivel formulario que los textbox tengan datos
             if (txtUsuario.Text == string.Empty)
             {
                 MensajeError("Ingresar Usuario");
@@ -40,20 +36,20 @@ namespace CapaVista
             else
             {
                 //Abro este form de login en un diálogo modal desde el MAIN, si se valida el Usuario, se abre el form principal, sino se cierra toda la aplicacion
-                try
-                {
+                //try
+                //{
                     validar = new CL_ValidarLogin();
                     validar.Usuario = txtUsuario.Text;
                     validar.Clave = txtClave.Text;
                     string resultado = validar.ValidarLogin();
                     if (resultado == "Login Exitoso") DialogResult = DialogResult.OK;
-                    else MensajeError(resultado);
+                    MensajeError(resultado);
                     txtClave.Text = "";
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"No fue posible realizar la transaccion\n\n\n\n{ex}", "ERROR");
-                }                
+                //}
+                //catch (Exception ex)
+                //{
+                //    MessageBox.Show($"No fue posible realizar la transaccion\n\n\n\n{ex}","ERROR");
+                //}                
             }
         }
         private void MensajeError(string mensaje)

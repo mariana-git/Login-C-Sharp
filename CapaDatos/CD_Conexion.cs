@@ -5,19 +5,16 @@ namespace CapaDatos
 {
     public abstract class CD_Conexion
     {
-        private readonly OleDbConnection Conexion = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source = |DataDirectory|BDLogin.accdb; Persist Security Info=False;");
+        private readonly string cadena;
 
-        public OleDbConnection Conectar()
+        public CD_Conexion()
         {
-            if (Conexion.State == ConnectionState.Open) Conexion.Close();
-            Conexion.Open();
-            return Conexion;
+            cadena = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source = |DataDirectory|BDLogin.accdb; Persist Security Info=False;";
         }
 
-        public OleDbConnection Desconectar()
+        protected OleDbConnection Conectar()
         {
-            Conexion.Close();
-            return Conexion;
+            return new OleDbConnection(cadena);
         }
     }
 }
