@@ -5,7 +5,7 @@ namespace CapaDatos
 {
     public class CD_EjecutarReader: CD_Conexion
     {
-        public DataTable ExecuteReader(string query)
+        public DataTable EjecutarReader(string query)
         {
             //Método para realizar todas las consultas en modo casi-conectado
             using (OleDbConnection Conexion = Conectar())

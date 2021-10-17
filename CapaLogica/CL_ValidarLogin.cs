@@ -8,43 +8,43 @@ namespace CapaLogica
 {
     public class CL_ValidarLogin
     {
-        CL_IntentosLogin intentos;
-
         public string Usuario { private get; set ; }
         public string Clave { private get; set; }
 
         public string ValidarLogin()
         {
-            intentos = new CL_IntentosLogin(Usuario); //clase que valida la cantidad de intentos
+            
             CD_ValidarNombreUsuario ValidaUsuarioCD = new CD_ValidarNombreUsuario();
             if (ValidaUsuarioCD.NombreUsuario(Usuario))   //valido que exista el usuario
             {
-                CD_ValidarLogin ValidaLoginCD = new CD_ValidarLogin(Usuario,Clave);
-                if (ValidaLoginCD.Existe) return "Login Exitoso"; //valido que coincidan usuario y contraseña
+                if(CS_UsuarioActivo.IDDirectorio == 3) return "Usuario Bloqueado"; //verifico que ya no esté bloqueado de antes
                 else
                 {
-                    
-                    if (intentos.Permitir) return "Clave Incorrecta";  //valido la cantidad de intentos incorrectos
+                    new CD_IntentosLogin(Usuario); //seteo el numero de intento erroneos consecutivos que lleva este usuario
+                    CD_ValidarLogin ValidaLoginCD = new CD_ValidarLogin(Usuario, Clave);
+                    if (ValidaLoginCD.Existe)
+                    {
+                        new CD_IntentosLogin(0, CS_UsuarioActivo.IDUsuario);
+                        return "Login Exitoso"; //valido que coincidan usuario y contraseña
+                    }
                     else
                     {
-                        CD_BloquearUsuario BloquearCD = new CD_BloquearUsuario();
-                        BloquearCD.Usuario = Usuario;
-                        int filas = BloquearCD.Bloquear();  //bloquear usuario
-                        return $"Usuario Bloqueado {filas} afectadas";
-                    }                         
-                }
+                        if (CS_UsuarioActivo.IntentosLogin < 3)
+                        {
+                            new CD_IntentosLogin(CS_UsuarioActivo.IntentosLogin++, CS_UsuarioActivo.IDUsuario);
+                            return $"Clave Incorrecta";
+                        }
+                        else
+                        {
+                            new CD_DirectorioUsuario(3,CS_UsuarioActivo.IDUsuario);
+                            new CD_IntentosLogin(0, CS_UsuarioActivo.IDUsuario);
+                            new CD_BloquearUsuario(CS_UsuarioActivo.IDUsuario);
+                            return "Usuario Bloqueado";
+                        }                    
+                    }
+                }                
             }
-            else return "Usuario Inexistente";
-            //if (CDUsuario.ValidarUsuario())
-            //{
-            //    CDUsuarioyClave = new CD_ValidarLogin();
-            //    CDUsuarioyClave.Usuario = this.Usuario;
-            //    CDUsuarioyClave.Clave = this.Clave;
-            //    bool coinciden = CDUsuarioyClave.ValidarUsuarioYContraseña();
-            //    if (coinciden) return "Login Exitoso";
-            //    else return "Clave Incorrecta";        
-            //}
-            //else return "Usuario Inexistente";            
+            else return "Usuario Inexistente";                       
         }       
     }
 }

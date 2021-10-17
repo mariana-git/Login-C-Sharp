@@ -45,8 +45,10 @@
   <ItemGroup>
     <Compile Include="CD_Conexion.cs" />
     <Compile Include="CD_BloquearUsuario.cs" />
+    <Compile Include="CD_DirectorioUsuario.cs" />
     <Compile Include="CD_EjecutarEscalar.cs" />
     <Compile Include="CD_EjecutarReader.cs" />
+    <Compile Include="CD_IntentosLogin.cs" />
     <Compile Include="CD_ValidarLogin.cs" />
     <Compile Include="CD_EjecutarNonQuery.cs" />
     <Compile Include="CD_ValidarNombreUsuario.cs" />
