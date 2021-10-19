@@ -29,7 +29,7 @@ namespace CapaVista
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelLogin = new System.Windows.Forms.Panel();
             this.lblMensajeError = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -40,27 +40,27 @@ namespace CapaVista
             this.txtClave = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.panelLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelLogin
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(12)))), ((int)(((byte)(168)))));
-            this.panel1.Controls.Add(this.lblMensajeError);
-            this.panel1.Controls.Add(this.btnCerrar);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.btnIngresar);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtClave);
-            this.panel1.Controls.Add(this.txtUsuario);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(249, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(371, 368);
-            this.panel1.TabIndex = 1;
+            this.panelLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(12)))), ((int)(((byte)(168)))));
+            this.panelLogin.Controls.Add(this.lblMensajeError);
+            this.panelLogin.Controls.Add(this.btnCerrar);
+            this.panelLogin.Controls.Add(this.panel3);
+            this.panelLogin.Controls.Add(this.panel2);
+            this.panelLogin.Controls.Add(this.btnIngresar);
+            this.panelLogin.Controls.Add(this.label2);
+            this.panelLogin.Controls.Add(this.label1);
+            this.panelLogin.Controls.Add(this.txtClave);
+            this.panelLogin.Controls.Add(this.txtUsuario);
+            this.panelLogin.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelLogin.Location = new System.Drawing.Point(249, 0);
+            this.panelLogin.Name = "panelLogin";
+            this.panelLogin.Size = new System.Drawing.Size(371, 368);
+            this.panelLogin.TabIndex = 1;
             // 
             // lblMensajeError
             // 
@@ -113,6 +113,7 @@ namespace CapaVista
             // 
             this.btnIngresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(9)))), ((int)(((byte)(183)))));
             this.btnIngresar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(219)))));
+            this.btnIngresar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(0)))), ((int)(((byte)(250)))));
             this.btnIngresar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(23)))), ((int)(((byte)(158)))));
             this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
@@ -190,14 +191,14 @@ namespace CapaVista
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(12)))), ((int)(((byte)(163)))));
             this.ClientSize = new System.Drawing.Size(620, 368);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelLogin.ResumeLayout(false);
+            this.panelLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -206,7 +207,7 @@ namespace CapaVista
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelLogin;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnIngresar;

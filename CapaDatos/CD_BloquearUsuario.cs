@@ -10,8 +10,7 @@ namespace CapaDatos
     {
         public CD_BloquearUsuario(int idusuario)
         {
-            //busco en la BD coincidencia de usuario y clave 
-            //string query = $"UPDATE Usuarios SET Bloqueado = True WHERE Usuario = 'd';";
+            //paso a Directorio "Bloqueado" al ususario y seteo la fecha de hoy
             string query = $"UPDATE Usuarios SET IDDirectorio = 3, FechaBloqueo =  Date() WHERE IDUsuario = {idusuario};";
             EjecutarNonQuery(query);
         }

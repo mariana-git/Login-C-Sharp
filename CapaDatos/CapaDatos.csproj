@@ -49,9 +49,9 @@
     <Compile Include="CD_EjecutarEscalar.cs" />
     <Compile Include="CD_EjecutarReader.cs" />
     <Compile Include="CD_IntentosLogin.cs" />
+    <Compile Include="CD_TraerDatosUsuario.cs" />
     <Compile Include="CD_ValidarLogin.cs" />
     <Compile Include="CD_EjecutarNonQuery.cs" />
-    <Compile Include="CD_ValidarNombreUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

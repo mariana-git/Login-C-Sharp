@@ -26,6 +26,7 @@ namespace CapaVista
         {
             StartPosition = FormStartPosition.CenterScreen;
             lblDatosActivo.Text = CS_UsuarioActivo.Nombre + " " + CS_UsuarioActivo.Apellido ;
+            lblCargo.Text = CS_UsuarioActivo.Cargo;
         }
     }
 }

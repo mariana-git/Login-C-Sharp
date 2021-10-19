@@ -1,6 +1,7 @@
 ﻿using System;
 using CapaLogica;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CapaVista
 {
@@ -42,8 +43,14 @@ namespace CapaVista
                     validar.Usuario = txtUsuario.Text;
                     validar.Clave = txtClave.Text;
                     string resultado = validar.ValidarLogin();
-                    if (resultado == "Login Exitoso") DialogResult = DialogResult.OK;
                     MensajeError(resultado);
+                    if (resultado == "Login Exitoso") // DialogResult = DialogResult.OK;
+                    //if (resultado == "Contraseña Expirada")
+                    {
+                    ClaveExpirada expiro = new ClaveExpirada();
+                    expiro.ShowDialog();
+                    }
+                    
                     txtClave.Text = "";
                 //}
                 //catch (Exception ex)
