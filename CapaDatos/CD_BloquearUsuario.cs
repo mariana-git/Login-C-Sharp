@@ -12,11 +12,8 @@ namespace CapaDatos
         {
             //busco en la BD coincidencia de usuario y clave 
             //string query = $"UPDATE Usuarios SET Bloqueado = True WHERE Usuario = 'd';";
-            string query1 = $"UPDATE Usuarios SET IDDirectorio = 3 WHERE IDUsuario = {idusuario};";
-            EjecutarNonQuery(query1);
-            string query2 = $"UPDATE Usuarios SET FechaBlqoueo = GETDATE() WHERE IDUsuario = {idusuario};";
-            EjecutarNonQuery(query2);
-
+            string query = $"UPDATE Usuarios SET IDDirectorio = 3, FechaBloqueo =  Date() WHERE IDUsuario = {idusuario};";
+            EjecutarNonQuery(query);
         }
     }
 }

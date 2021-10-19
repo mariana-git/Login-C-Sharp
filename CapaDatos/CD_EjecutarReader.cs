@@ -21,6 +21,14 @@ namespace CapaDatos
                         DT.Load(leer);
                         return DT;
                     }
+                    //using (OleDbDataAdapter da = new OleDbDataAdapter(query, Conexion))
+                    //{
+                    //    using (DataTable dt = new DataTable())
+                    //    {
+                    //        da.Fill(dt);
+                    //        return dt;
+                    //    }
+                    //}
                 }
             }
         }        

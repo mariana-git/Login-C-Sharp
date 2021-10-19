@@ -13,38 +13,37 @@ namespace CapaLogica
 
         public string ValidarLogin()
         {
-            
-            CD_ValidarNombreUsuario ValidaUsuarioCD = new CD_ValidarNombreUsuario();
-            if (ValidaUsuarioCD.NombreUsuario(Usuario))   //valido que exista el usuario
+
+            CD_ValidarLogin ValidaLoginCD = new CD_ValidarLogin();
+            if (ValidaLoginCD.NombreUsuario(Usuario))   //valido que exista el usuario
             {
-                if(CS_UsuarioActivo.IDDirectorio == 3) return "Usuario Bloqueado"; //verifico que ya no esté bloqueado de antes
+                ValidaLoginCD.CargarDatosLogin(Usuario); //cargo la capa de cache
+                if (CS_UsuarioActivo.IDDirectorio == 3) return "Usuario Bloqueado"; //verifico que ya no esté bloqueado de antes
                 else
                 {
-                    new CD_IntentosLogin(Usuario); //seteo el numero de intento erroneos consecutivos que lleva este usuario
-                    CD_ValidarLogin ValidaLoginCD = new CD_ValidarLogin(Usuario, Clave);
-                    if (ValidaLoginCD.Existe)
+                    if (ValidaLoginCD.UsuarioYClave(Usuario, Clave))    //valido que exista el usuario y clave
                     {
-                        new CD_IntentosLogin(0, CS_UsuarioActivo.IDUsuario);
-                        return "Login Exitoso"; //valido que coincidan usuario y contraseña
+                        return "Login Exitoso"; //valido que coincidan usuario y contraseña 
                     }
                     else
                     {
                         if (CS_UsuarioActivo.IntentosLogin < 3)
                         {
-                            new CD_IntentosLogin(CS_UsuarioActivo.IntentosLogin++, CS_UsuarioActivo.IDUsuario);
+                            CS_UsuarioActivo.IntentosLogin+=1;
+                            new CD_IntentosLogin(CS_UsuarioActivo.IntentosLogin, CS_UsuarioActivo.IDUsuario);
                             return $"Clave Incorrecta";
                         }
                         else
                         {
-                            new CD_DirectorioUsuario(3,CS_UsuarioActivo.IDUsuario);
+                            new CD_DirectorioUsuario(3, CS_UsuarioActivo.IDUsuario);
                             new CD_IntentosLogin(0, CS_UsuarioActivo.IDUsuario);
                             new CD_BloquearUsuario(CS_UsuarioActivo.IDUsuario);
                             return "Usuario Bloqueado";
-                        }                    
+                        }
                     }
-                }                
+                }
             }
-            else return "Usuario Inexistente";                       
+            else return "Usuario Inexistente";
         }       
     }
 }
