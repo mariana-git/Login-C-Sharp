@@ -6,7 +6,7 @@ namespace CapaDatos
 {
     public class CD_EjecutarEscalar : CD_Conexion
     {
-        public int EjecutarEscalar(string query)
+        internal int EjecutarEscalar(string query)
         {
             //Método para realizar todas las consultas en modo desconectado
             using (OleDbConnection Conexion = Conectar())

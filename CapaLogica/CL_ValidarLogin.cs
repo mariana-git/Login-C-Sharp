@@ -1,6 +1,6 @@
 ﻿using CapaSoporte;
-using CapaDatos;
 using System;
+using CapaDatos;
 
 namespace CapaLogica
 {
@@ -23,18 +23,17 @@ namespace CapaLogica
                     if (ValidaLoginCD.UsuarioYClave(Usuario, Clave))    //valido que exista el usuario y clave
                     {
                         new CD_TraerDatosUsuario().DatosUsuarioLogueado();  //cargo el resto de los datos del Usuario y la Persona en la cache
-                        new CD_IntentosLogin(1, CS_UsuarioActivo.IDUsuario);
-                        TimeSpan claveSinCambio = DateTime.Today - CS_UsuarioActivo.FechaUltCambio;
+                        new CD_IntentosLogin(1, CS_UsuarioActivo.IDUsuario);     //reestablezco el contador de intentos fallidos
+                        TimeSpan claveSinCambio = DateTime.Today - CS_UsuarioActivo.FechaUltCambio; //calculo la cantidad de dias entre el ultimo cambio de clave y hoy
 
-                        if (CS_UsuarioActivo.FrecuenciaCambio < claveSinCambio.TotalDays)
+                        if (CS_UsuarioActivo.FrecuenciaCambio > claveSinCambio.TotalDays)   //verifico que no haya expirado la contraseña
                         {
-                            return "Login Exitoso"; //valido que coincidan usuario y contraseña
+                            return "Login Exitoso";
                         }
                         else
                         {
                             return "Contraseña Expirada";
-                        }
-                         
+                        }                         
                     }
                     else
                     {

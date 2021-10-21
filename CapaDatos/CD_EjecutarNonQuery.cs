@@ -6,7 +6,7 @@ namespace CapaDatos
 {
     public class CD_EjecutarNonQuery: CD_Conexion
     {
-        public int EjecutarNonQuery(string query)
+        internal int EjecutarNonQuery(string query)
         {
             //Método para realizar todas las consultas en modo desconectado
             using (OleDbConnection Conexion = Conectar())

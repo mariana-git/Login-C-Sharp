@@ -23,6 +23,7 @@ namespace CapaSoporte
         public static int IDCargo { get; set; }
         public static string Cargo { get; set; }
 
+        public static string ClaveNueva { get; set; }
 
     }
 }
