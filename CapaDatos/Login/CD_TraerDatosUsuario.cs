@@ -2,7 +2,7 @@
 using System;
 using System.Data;
 
-namespace CapaDatos
+namespace CapaDatos.Login
 {
     public class CD_TraerDatosUsuario
     {

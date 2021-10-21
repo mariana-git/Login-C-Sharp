@@ -1,4 +1,4 @@
-﻿namespace CapaDatos
+﻿namespace CapaDatos.Login
 {
     public class CD_ValidarLogin
     {        

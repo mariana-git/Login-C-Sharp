@@ -1,6 +1,6 @@
 ﻿using CapaSoporte;
 using System;
-using CapaDatos;
+using CapaDatos.Login;
 
 namespace CapaLogica
 {
