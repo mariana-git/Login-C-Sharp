@@ -42,9 +42,10 @@ namespace CapaVista
             this.button1 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblCargo = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
@@ -228,6 +229,23 @@ namespace CapaVista
             this.button2.Text = "Turnos";
             this.button2.UseVisualStyleBackColor = false;
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(55)))), ((int)(((byte)(201)))));
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(219)))));
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(0)))), ((int)(((byte)(184)))));
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(23)))), ((int)(((byte)(158)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Arial Unicode MS", 13F);
+            this.button3.ForeColor = System.Drawing.Color.Aquamarine;
+            this.button3.Location = new System.Drawing.Point(0, 523);
+            this.button3.Margin = new System.Windows.Forms.Padding(0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(145, 81);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "Usuarios";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(11)))), ((int)(((byte)(173)))));
@@ -252,22 +270,13 @@ namespace CapaVista
             this.lblCargo.Text = "Cargo";
             this.lblCargo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // button3
+            // panelPrincipal
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(55)))), ((int)(((byte)(201)))));
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(219)))));
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(0)))), ((int)(((byte)(184)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(23)))), ((int)(((byte)(158)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Arial Unicode MS", 13F);
-            this.button3.ForeColor = System.Drawing.Color.Aquamarine;
-            this.button3.Location = new System.Drawing.Point(0, 523);
-            this.button3.Margin = new System.Windows.Forms.Padding(0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(145, 81);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Usuarios";
-            this.button3.UseVisualStyleBackColor = false;
+            this.panelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelPrincipal.Location = new System.Drawing.Point(148, 118);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(1244, 682);
+            this.panelPrincipal.TabIndex = 35;
             // 
             // Principal
             // 
@@ -275,6 +284,7 @@ namespace CapaVista
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(55)))), ((int)(((byte)(201)))));
             this.ClientSize = new System.Drawing.Size(1442, 850);
+            this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel2);
@@ -309,5 +319,6 @@ namespace CapaVista
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblCargo;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel panelPrincipal;
     }
 }

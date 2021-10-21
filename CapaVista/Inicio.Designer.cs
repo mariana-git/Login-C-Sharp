@@ -177,7 +177,6 @@ namespace CapaVista
             this.txtClave.ForeColor = System.Drawing.Color.White;
             this.txtClave.Location = new System.Drawing.Point(81, 188);
             this.txtClave.Name = "txtClave";
-            this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(217, 26);
             this.txtClave.TabIndex = 1;
             this.txtClave.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

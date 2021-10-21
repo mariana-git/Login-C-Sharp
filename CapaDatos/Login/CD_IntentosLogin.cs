@@ -8,9 +8,9 @@ namespace CapaDatos.Login
 {
     public class CD_IntentosLogin
     {        
-        public CD_IntentosLogin(int intento, int idusuario)
+        public CD_IntentosLogin(int intento)
         {
-            string query = $"UPDATE Usuarios SET IntentosLogin = { intento } WHERE IDUsuario = {idusuario};";
+            string query = $"UPDATE Usuarios SET IntentosLogin = { intento }, FechaUltIntento =  Date() WHERE IDUsuario = {CS_UsuarioActivo.IDUsuario};";
             new CD_EjecutarNonQuery().EjecutarNonQuery(query);
         }
   

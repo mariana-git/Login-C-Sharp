@@ -23,11 +23,12 @@ namespace CapaLogica
                     if (ValidaLoginCD.UsuarioYClave(Usuario, Clave))    //valido que exista el usuario y clave
                     {
                         new CD_TraerDatosUsuario().DatosUsuarioLogueado();  //cargo el resto de los datos del Usuario y la Persona en la cache
-                        new CD_IntentosLogin(1, CS_UsuarioActivo.IDUsuario);     //reestablezco el contador de intentos fallidos
+                        new CD_IntentosLogin(1);     //reestablezco el contador de intentos fallidos
                         TimeSpan claveSinCambio = DateTime.Today - CS_UsuarioActivo.FechaUltCambio; //calculo la cantidad de dias entre el ultimo cambio de clave y hoy
 
                         if (CS_UsuarioActivo.FrecuenciaCambio > claveSinCambio.TotalDays)   //verifico que no haya expirado la contraseña
                         {
+                            new CD_CambioFechaUltIngreso();
                             return "Login Exitoso";
                         }
                         else
@@ -39,14 +40,14 @@ namespace CapaLogica
                     {
                         if (CS_UsuarioActivo.IntentosLogin < 3)
                         {
-                            new CD_IntentosLogin(CS_UsuarioActivo.IntentosLogin+=1, CS_UsuarioActivo.IDUsuario);
+                            new CD_IntentosLogin(CS_UsuarioActivo.IntentosLogin+=1);
                             return $"Clave Incorrecta";
                         }
                         else
                         {
-                            new CD_DirectorioUsuario(3, CS_UsuarioActivo.IDUsuario);
-                            new CD_IntentosLogin(1, CS_UsuarioActivo.IDUsuario);
-                            new CD_BloquearUsuario(CS_UsuarioActivo.IDUsuario);
+                            new CD_CambioDirectorio(3);
+                            new CD_IntentosLogin(1);
+                            new CD_BloquearUsuario();
                             return "Usuario Bloqueado";
                         }
                     }

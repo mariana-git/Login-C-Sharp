@@ -46,9 +46,10 @@
     <Compile Include="CD_Conexion.cs" />
     <Compile Include="Login\CD_BloquearUsuario.cs" />
     <Compile Include="Login\CD_CambioClave.cs" />
-    <Compile Include="Login\CD_DirectorioUsuario.cs" />
+    <Compile Include="Login\CD_CambioDirectorio.cs" />
     <Compile Include="CD_EjecutarEscalar.cs" />
     <Compile Include="CD_EjecutarReader.cs" />
+    <Compile Include="Login\CD_CambioFechaUltIngreso.cs" />
     <Compile Include="Login\CD_IntentosLogin.cs" />
     <Compile Include="Login\CD_TraerDatosUsuario.cs" />
     <Compile Include="Login\CD_ValidarLogin.cs" />

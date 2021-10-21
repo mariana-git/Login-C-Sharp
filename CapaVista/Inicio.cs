@@ -15,6 +15,7 @@ namespace CapaVista
             AcceptButton = btnIngresar;
             StartPosition = FormStartPosition.CenterScreen;
             btnCancelar.Visible = false;
+            txtClave.UseSystemPasswordChar = true;
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
@@ -53,8 +54,9 @@ namespace CapaVista
                     {
                         txtClave.Text = "";
                         txtUsuario.Text = "";
-                        MessageBox.Show("Deberá registrar una nueva clave.\n\nRequisitos:\n - Entre 4 y 8 Caracteres\n - Al menos una letra minúscula\n - Al menos una letra mayúscula\n - Al menos un número", mensaje);
+                        MessageBox.Show("Deberá registrar una nueva clave.\n\nREQUISITOS:\n\n - Entre 4 y 8 Caracteres\n - Al menos una letra minúscula\n - Al menos una letra mayúscula\n - Al menos un número", mensaje);
                         btnCancelar.Visible = true;
+                        txtUsuario.UseSystemPasswordChar = true;
                         btnIngresar.Text = "Confirmar";
                         lblPrimero.Text = "Nueva Clave";
                         lblSegundo.Text = "Confirmar Clave";
@@ -111,6 +113,7 @@ namespace CapaVista
             txtUsuario.Text = "";
             btnCancelar.Visible = false;
             lblMensajeError.Visible = false;
+            txtUsuario.UseSystemPasswordChar = false;
         }
     }
 }

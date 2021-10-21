@@ -15,7 +15,7 @@
         {
             //busco en la BD coincidencia de usuario y clave
             string query = $"SELECT * FROM Usuarios WHERE Usuario = '{usuario}' AND Clave = '{clave}';";
-            
+
             if (new CD_EjecutarEscalar().EjecutarEscalar(query) == 0) return false;
             else return true;
         }
