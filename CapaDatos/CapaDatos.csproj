@@ -54,6 +54,7 @@
     <Compile Include="Login\CD_TraerDatosUsuario.cs" />
     <Compile Include="Login\CD_ValidarLogin.cs" />
     <Compile Include="CD_EjecutarNonQuery.cs" />
+    <Compile Include="Login\CD_BuscarUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

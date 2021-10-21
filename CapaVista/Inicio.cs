@@ -1,5 +1,5 @@
 ﻿using System;
-using CapaLogica;
+using CapaLogica.Login;
 using System.Windows.Forms;
 
 namespace CapaVista

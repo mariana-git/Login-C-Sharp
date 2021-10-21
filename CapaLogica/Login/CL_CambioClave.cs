@@ -3,7 +3,7 @@ using CapaDatos.Login;
 using CapaSoporte;
 using System.Linq;
 
-namespace CapaLogica
+namespace CapaLogica.Login
 {
     public class CL_CambioClave
     {

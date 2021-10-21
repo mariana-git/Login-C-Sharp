@@ -42,8 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CL_CambioClave.cs" />
-    <Compile Include="CL_ValidarLogin.cs" />
+    <Compile Include="Login\CL_BuscarUsuarios.cs" />
+    <Compile Include="Login\CL_CambioClave.cs" />
+    <Compile Include="Login\CL_ValidarLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

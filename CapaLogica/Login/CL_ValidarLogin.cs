@@ -2,7 +2,8 @@
 using System;
 using CapaDatos.Login;
 
-namespace CapaLogica
+namespace CapaLogica.Login
+
 {
     public class CL_ValidarLogin
     {
