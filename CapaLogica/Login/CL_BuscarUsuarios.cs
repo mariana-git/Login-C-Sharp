@@ -11,7 +11,7 @@ namespace CapaLogica.Login
         public DataTable Buscar(string palabra)
         {
             CD_BuscarUsuarios BuscarUsuarios = new CD_BuscarUsuarios();
-            if(palabra == string.Empty)
+            if (palabra == string.Empty)
             {
                 using (DataTable DT = BuscarUsuarios.SinParametros())
                 {
@@ -20,12 +20,21 @@ namespace CapaLogica.Login
             }
             else
             {
-                using (DataTable DT = BuscarUsuarios.ConParametros(palabra))
+                if (int.TryParse(palabra, out int numero))
                 {
-                    return DT;
+                    using (DataTable DT = BuscarUsuarios.ConParametros(numero))
+                    {
+                        return DT;
+                    }
                 }
+                else
+                {
+                    using (DataTable DT = BuscarUsuarios.ConParametros(palabra))
+                    {
+                        return DT;
+                    }
+                }                    
             }
-
         }
     }
 }
